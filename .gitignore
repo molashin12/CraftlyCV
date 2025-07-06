@@ -125,6 +125,10 @@ public/robots.txt
 **/api-keys.json
 **/secrets.json
 
+# Firebase service account keys
+*firebase-adminsdk*.json
+craftlycv-firebase-adminsdk-*.json
+
 # Database dumps
 *.sql
 *.db
