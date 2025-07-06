@@ -1,0 +1,209 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap');
+
+/* CSS Custom Properties for CraftlyCV Brand */
+:root {
+  --primary-navy: #1C2B39;
+  --pen-blue: #0D4D7A;
+  --soft-bg: #F7F9FA;
+  --dark-text: #1C1C1C;
+  --success-green: #27AE60;
+  --warning-red: #E74C3C;
+  --light-gray: #F8F9FA;
+  --medium-gray: #6C757D;
+  --border-gray: #DEE2E6;
+}
+
+/* Global Base Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-text);
+  background-color: var(--soft-bg);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--primary-navy);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--dark-text);
+}
+
+/* Links */
+a {
+  color: var(--pen-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-navy);
+}
+
+/* Focus States */
+*:focus {
+  outline: 2px solid var(--pen-blue);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--medium-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pen-blue);
+}
+
+/* Component Base Classes */
+.btn-primary {
+  @apply bg-primary-navy text-white px-8 py-3 rounded-2xl hover:bg-pen-blue transition-colors duration-200 font-medium;
+}
+
+.btn-secondary {
+  @apply bg-white text-primary-navy border-2 border-primary-navy px-8 py-3 rounded-2xl hover:bg-primary-navy hover:text-white transition-all duration-200 font-medium;
+}
+
+.btn-outline {
+  @apply border-2 border-pen-blue text-pen-blue px-6 py-2 rounded-lg hover:bg-pen-blue hover:text-white transition-all duration-200;
+}
+
+.card {
+  @apply bg-white shadow-soft rounded-xl p-6 border border-border-gray;
+}
+
+.card-hover {
+  @apply card hover:shadow-medium transition-shadow duration-200;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 border border-border-gray rounded-lg focus:border-pen-blue focus:outline-none transition-colors duration-200;
+}
+
+.textarea-field {
+  @apply input-field resize-y min-h-[120px];
+}
+
+.label {
+  @apply block text-sm font-medium text-dark-text mb-2;
+}
+
+.error-text {
+  @apply text-warning-red text-sm mt-1;
+}
+
+.success-text {
+  @apply text-success-green text-sm mt-1;
+}
+
+/* Loading States */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-pen-blue;
+}
+
+.loading-dots {
+  @apply flex space-x-1;
+}
+
+.loading-dots div {
+  @apply w-2 h-2 bg-pen-blue rounded-full animate-pulse;
+}
+
+/* Progress Bar */
+.progress-bar {
+  @apply w-full bg-light-gray rounded-full h-2;
+}
+
+.progress-fill {
+  @apply bg-gradient-to-r from-pen-blue to-primary-navy h-2 rounded-full transition-all duration-300;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    @apply px-6 py-2 text-sm;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+  }
+  
+  .no-print {
+    display: none;
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles will be added here in future phases */
+}
